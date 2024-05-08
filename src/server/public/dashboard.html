@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Searchable</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div class="dashboard">
+    <h1>Dashboard</h1>
+    <p>Logged in as: <span id="username">Fetching data...</span></p>
+    <hr>
+    <h3 class="centerText">Your active link: <span id="link">https://example.com/?c=1fa8c</span></h3>
+    <div class="centerButton">
+      <button class="button" id="invalidate">Invalidate</button>
+      <button class="button" id="new">New</button>
+      <input class="inputText" id="minuteValue" style="display: inline-block;" placeholder="Time in minutes"
+        type="number">
+    </div>
+    <hr>
+    <div id="management">
+      <h3 class="centerText">Admins</h3>
+      <button class="button">Add Admin</button>
+      <ul>
+        <li style="margin:1vmin"><span aria-label="name">Admin</span> | <span aria-label="code">1fa8c</span> | <button
+            aria-label="reset" class="button">Reset Code</button> | <button aria-label="remove" class="button"
+            style="color:red">Remove</button></li>
+
+
+      </ul>
+    </div>
+  </div>
+
+  <script src="scroll.js">  </script>
+  <script src="dashboard.js"></script>
+</body>
+
+</html>

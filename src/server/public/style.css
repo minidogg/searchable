@@ -1,0 +1,221 @@
+h1 {
+  font-size: 6vmin;
+  text-align: center;
+}
+
+h2 {
+  font-size: 5vmin;
+}
+
+h3 {
+  font-size: 4vmin;
+}
+
+h3>* {
+  font-size: 4vmin;
+}
+
+.centerText {
+  text-align: center;
+}
+
+.logoh1 {
+  height: 5vh;
+  width: 30vw;
+  vertical-align: middle;
+}
+
+* {
+  font-family: sans-serif;
+  color: white;
+  font-size: 3vmin;
+}
+
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background-image: url("img/backdrop1.svg");
+  background-size: fit;
+
+  margin: 0;
+}
+
+#nav {
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  width: 100vw;
+  height: 5vw;
+
+  padding-bottom: 1.5vh;
+  padding-top: 1vh;
+  border-radius: 0 0 2vh 2vh;
+
+}
+
+#nav>* {
+  vertical-align: middle;
+}
+
+.logo {
+  height: 100%;
+  width: 30vw;
+}
+
+.logo:hover {
+  cursor: pointer;
+}
+
+.searchForm {
+  display: inline-block;
+}
+
+.searchBar {
+  all: unset;
+  display: inline-block;
+  padding: 0.7vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10vmin;
+  width: 25vw;
+  height: 50%;
+}
+
+#games {
+  display: grid;
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 80vw;
+  height: 80vh;
+  margin: auto;
+  margin-top: 1.5vh;
+  padding: 2vh;
+  backdrop-filter: blur(5px);
+
+  border-radius: 2vmin;
+  overflow-y: auto;
+
+  grid-row-gap: 2vh;
+  grid-column-gap: 1vw;
+  grid-template-columns: repeat(auto-fill, minmax(10vw, 1fr));
+}
+
+.game {
+  background-color: gray;
+  width: fit-content;
+  height: fit-content;
+  border-radius: 4vmin;
+
+  filter: brightness(100%);
+  box-shadow: #9c9c9c 0vw 1vh;
+  transform: translateY(0vh);
+  transition: all 0.2s ease-in-out;
+}
+
+
+
+.game:hover {
+  filter: brightness(110%);
+}
+
+.game:active {
+  box-shadow: #9c9c9c 0vw 0vh;
+  transform: translateY(1vh);
+}
+
+/* .game:hover>*[class=gameName] {
+  color: #121212;
+} */
+
+.gameName {
+  display: block;
+  text-align: center;
+  font-size: 2vmin;
+  user-select: none;
+  word-break: break-word;
+  transition: color 1s;
+  padding: 10px;
+}
+
+.gameCover {
+  border-radius: 4vmin 4vmin 2vmin 2vmin;
+  user-select: none;
+  width: 10vw;
+}
+
+.a {
+  all: unset;
+  text-decoration: underline;
+}
+
+.a:hover {
+  cursor: pointer;
+}
+
+.container {
+  display: block;
+  background-color: rgba(0, 0, 0, 0.3);
+  max-width: 1000px;
+  width: 80vw;
+  height: 80vh;
+  margin: auto;
+  margin-top: 1.5vh;
+  padding: 2vh;
+  backdrop-filter: blur(5px);
+
+  border-radius: 2vmin;
+  overflow-y: auto;
+}
+
+.marginAuto {
+  width: fit-content;
+  height: fit-content;
+  display: block;
+  margin: auto;
+}
+
+.inputText {
+  all: unset;
+  display: block;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 2vmin;
+  border-radius: 4vmin;
+  margin: 10px;
+}
+
+.button {
+  all: unset;
+  user-select: none;
+  background-color: rgba(0, 0, 0, 0.35);
+  padding: 2vmin;
+  border-radius: 4vmin;
+
+  transition: background-color 0.2s ease-in-out;
+}
+
+.button:hover {
+  cursor: pointer;
+  background-color: rgb(84, 84, 84, 0.3);
+}
+
+.button:activer {
+  background-color: rgb(54, 54, 54, 0.32);
+}
+
+.centerButton {
+  display: block;
+  margin: auto;
+  text-align: center;
+}
+
+.dashboard {
+  background-color: rgb(120, 120, 120, 0.7);
+  height: 100vh;
+  width: 100vw;
+  overflow-y: scroll;
+}
+
+.dashboard>* {
+  margin: 1vmin;
+}
