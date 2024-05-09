@@ -22,9 +22,13 @@
     quickEl("img","","gameCover","img/placeholderIcon.svg",game)
     quickEl("span",name,"gameName","",game)
 
-    console.log(game.querySelector("span"))
     game.querySelector("img").src = cover
     game.querySelector(".gameName").innerHTML = name
+    game.onclick = ()=>{
+      setTimeout(()=>{
+        window.location.assign("./play.html?id="+encodeURIComponent(gameId))
+      },250)
+    }
 
     gamesEl.appendChild(game)
   }
@@ -35,9 +39,10 @@
 
   const search = document.getElementById("search")
   setInterval(()=>{
+    let searchValue = search.value.toLowerCase()
     Array.from(gamesEl.children).forEach(el=>{
-      let name = el.querySelector("span").textContent
-      el.style.display=name.includes(search.value)?"block":"none"
+      let name = el.querySelector("span").textContent.toLowerCase()
+      el.style.display=name.includes(searchValue)?"block":"none"
     })
   },500)
 })()

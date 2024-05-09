@@ -12,12 +12,24 @@
   <div id="nav">
     abcdefghijklmnopqrstuvwxyz&
   </div>
-  <div class="container"">
+  <div class="container">
     <h1>Welcome to Searchable!</h1>
+    <p>With Searchable teachers can create codes that lets students only play games on the site when they are allowed to.</p>
+    <hr>
+    <form class="marginAuto" action="/code">
+      <input required id="code" name="code" class="inputText" placeholder="Code" minlength="5" maxlength="5">
+      <input type="submit" class="button centerButton" style="width: 85%;" value="Play">
+      <p style="line-height:2vmin;font-size:2vmin;color:red;text-align:center;" id="codeInvalid"></p>
+    </form>
   </div>
   <script src=" scroll.js">
   </script>
     <script src="nav.js"></script>
+    <script>
+      if(window.location.href.includes("invalidCode")){
+        document.getElementById("codeInvalid").textContent = "Invalid code was entered!"
+      }
+    </script>
 </body>
 
 </html>

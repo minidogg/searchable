@@ -39,7 +39,6 @@ html {
 
 body {
   background-image: url("img/backdrop1.svg");
-  background-size: fit;
 
   margin: 0;
 }
@@ -218,4 +217,11 @@ body {
 
 .dashboard>* {
   margin: 1vmin;
+}
+
+#gameIframe{
+  display:block;
+  width:80%;
+  height:80%;
+  margin:auto;
 }

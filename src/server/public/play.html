@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Searchable</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div id="nav">
+    abcdefghijklmnopqrstuvwxyz&
+  </div>
+  <div class="container">
+    <iframe src="https://webglmath.github.io/slope/" allowfullscreen style="padding:10px;border-radius:10px;" id="gameIframe"></iframe>
+    <button class="button centerButton" id="fullscreen" style="margin-top:20px;">Fullscreen</button>
+
+  </div>
+
+  <script src="check.js"></script>
+  <script src=" scroll.js"></script>
+    <script src="nav.js"></script>
+  <script>
+    document.getElementById("fullscreen").onclick = () => {
+      if (document.fullscreenElement) {
+        document.exitFullscreen();
+      } else {
+        document.getElementById("gameIframe").requestFullscreen();
+      }
+    }
+  </script>
+</body>
+
+</html>
