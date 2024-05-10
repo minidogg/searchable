@@ -17,7 +17,7 @@
   updateDashboard()
   
   newEl.onclick = async ()=>{
-    await fetch("./newCode")
+    await fetch("./newCode?expires="+encodeURIComponent(Date.now()+(minuteValueEl.value*60000)))
     
     updateDashboard()
   }

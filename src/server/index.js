@@ -31,7 +31,7 @@ console.log(crypto.createHash('md5').update("password").digest('hex'))
 setInterval(() => {
     let dateNow = Date.now();
     for(let i = 0;i<Object.keys(sessions).length;i++){
-        if(sessions[Object.keys(sessions)[i]].expire < dateNow&&sessions[Object.keys(sessions)[i]].code!=""){
+        if(sessions[Object.keys(sessions)[i]].expires < dateNow&&sessions[Object.keys(sessions)[i]].code!=""){
             sessions[Object.keys(sessions)[i]].code = ""
         }
     }
@@ -51,7 +51,7 @@ app.get("/code", (req, res) => {
         res.send("You managed to send an invalid code?!?!?!???!!?!?");
         return;
     }
-    if (!sessions.find((e) => e.code == req.query.code)) {
+    if (!Object.entries(sessions).find((e) => e[1].code == req.query.code)) {
         res.redirect("/index.html?invalidCode");
         return;
     }
@@ -60,7 +60,6 @@ app.get("/code", (req, res) => {
 });
 
 app.post("/dashboard",(req,res)=>{
-    console.log(req.body)
     if(typeof(req.body.admin)!== "string" || typeof(req.body.password)!== "string"){
         res.send("Body entries must be strings!")
     }
@@ -89,7 +88,7 @@ app.use(function (req, res, next) {
         return;
     }
     var code = req.cookies.code;
-    if (code == undefined || !sessions.find((e) => e.code == code)) {
+    if (code == undefined || !Object.entries(sessions).find((e) => e[1].code == code)) {
         res.status(403);
         res.sendFile(forbiddenPage);
         return;
@@ -113,7 +112,7 @@ app.use(function (req, res, next) {
 app.get("/check", (req, res) => {
     res.send(
         req.cookies.code == undefined ||
-            !sessions.find((e) => e.code == req.cookies.code),
+            !Object.entries(sessions).find((e) => e[1].code == req.cookies.code),
     );
 });
 
@@ -124,6 +123,8 @@ app.get("/newCode", (req, res) => {
         return
     }
     sessions[req.cookies.token].code = genRanHex(5)
+    console.log(req.query)
+    sessions[req.cookies.token].expires = parseFloat(req.query.expires)
     res.send(sessions[req.cookies.token].code)
 });
 app.use(express.static(path.join(__dirname, "/public")));
