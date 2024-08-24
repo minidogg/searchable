@@ -10,4 +10,4 @@ setInterval(async()=>{
             document.getElementById("container").innerHTML = warning
         }catch{}
     }
-},5000)
+},8000)

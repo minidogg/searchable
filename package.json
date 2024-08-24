@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-    "dev":"echo please cd into the src folder and run the dev command there!"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev":"cd src && npm run dev"
   },
   "keywords": [],
   "author": "",

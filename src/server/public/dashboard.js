@@ -8,7 +8,7 @@
 
   var session = {}
   async function updateDashboard(){
-    session = await fetch("./adminSession")
+    session = await fetch("/adminSession")
     session = await session.json()
 
     usernameEl.textContent = session.name
@@ -17,8 +17,12 @@
   updateDashboard()
   
   newEl.onclick = async ()=>{
-    await fetch("./newCode?expires="+encodeURIComponent(Date.now()+(minuteValueEl.value*60000)))
+    await fetch("/newCode?expires="+encodeURIComponent(Date.now()+(minuteValueEl.value*60000)))
     
     updateDashboard()
+  }
+
+  invalidEl.onclick = async()=>{
+    await fetch("/newCode?expires="+encodeURIComponent(Date.now()))
   }
 })()
