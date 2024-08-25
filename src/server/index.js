@@ -1,3 +1,6 @@
+const build = require("./build.js") 
+build.startBuild()
+
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser")
 const crypto = require("crypto");
@@ -11,8 +14,8 @@ var admins = {}
 var sessions = {}
 
 
-if(!fs.existsSync("./admins.json")){
-    fs.writeFileSync("admins.json", JSON.stringify(
+if(!fs.existsSync("./db/admins.json")){
+    fs.writeFileSync("./db/admins.json", JSON.stringify(
     {
         "admin":{
           "password": "21232f297a57a5a743894a0e4a801fc3", //md5 hash
@@ -20,9 +23,9 @@ if(!fs.existsSync("./admins.json")){
     }
     ),"utf-8")
 }
-admins = JSON.parse(fs.readFileSync("./admins.json","utf-8"))
+admins = JSON.parse(fs.readFileSync("./db/admins.json","utf-8"))
 setInterval(()=>{
-    fs.writeFileSync("./admins.json",JSON.stringify(admins),"utf-8")
+    fs.writeFileSync("./db/admins.json",JSON.stringify(admins),"utf-8")
 },2000)
 
 console.log(crypto.createHash('md5').update("password").digest('hex'))
@@ -38,7 +41,7 @@ setInterval(() => {
 }, 5000);
 
 const requiresCode = ["/game.html", "/game.js", "play.html", "play.js"];
-const forbiddenPage = path.join(__dirname, "/public/403.html");
+const forbiddenPage = path.resolve("./build/403.html");
 
 app.use(cookieParser());
 app.use( bodyParser.json() );       // to support JSON-encoded bodies
@@ -127,7 +130,7 @@ app.get("/newCode", (req, res) => {
     sessions[req.cookies.token].expires = parseFloat(req.query.expires)
     res.send(sessions[req.cookies.token].code)
 });
-app.use(express.static(path.join(__dirname, "/public")));
+app.use(express.static(path.resolve("./build")));
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
